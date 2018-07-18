@@ -11,9 +11,13 @@ public class PlayerController : MonoBehaviour {
     bool isOnFloor;
     bool pressedJump = false;
 
+    //Animator
+    Animator anim;
+
 	// Use this for initialization
 	void Start () {
         playerRigidbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 	}
 
 
@@ -59,10 +63,12 @@ public class PlayerController : MonoBehaviour {
         {
             if (isOnFloor && !pressedJump) //nur wenn Spieler auf dem Grund und nur wenn er noch nicht gesprungen ist
             {
+                isOnFloor = false;
+                pressedJump = false;
                 Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
                 //Tempo/Kraft mitgeben
                 playerRigidbody.AddForce(jumpVector);
-                isOnFloor = false;
+                anim.SetBool("jump", true);
             }
             
         } else
