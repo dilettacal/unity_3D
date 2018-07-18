@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     public float distance = 2f; //Beweungsdistanz
     public bool moveUp = false;
@@ -13,15 +14,17 @@ public class EnemyController : MonoBehaviour {
     Transform trans; //Speichert die Position von Feind
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         trans = GetComponent<Transform>(); //initialisiert die Position
         startingPos = trans.position;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (moveUp)
         {
@@ -31,8 +34,12 @@ public class EnemyController : MonoBehaviour {
         if (moveSide)
         {
             //ping pong Funktion bewegt hin und her
-            trans.position = new Vector3(startingPos.x + Mathf.PingPong(Time.time, distance), startingPos.y , startingPos.z);
+            trans.position = new Vector3(startingPos.x + Mathf.PingPong(Time.time, distance), startingPos.y, startingPos.z);
         }
-		
-	}
+        if (moveSide && moveUp)
+        {
+            trans.position = new Vector3(startingPos.x + Mathf.PingPong(Time.time, distance), startingPos.y + Mathf.PingPong(Time.time, distance), startingPos.z);
+        }
+
+    }
 }
