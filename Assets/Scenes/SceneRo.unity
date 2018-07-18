@@ -167,6 +167,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa86bdd10121aaa4aa0fc586f29bea18, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!4 &80167567
 Transform:
   m_ObjectHideFlags: 0
@@ -186,6 +187,12 @@ Transform:
   m_Father: {fileID: 1488355781}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+--- !u!4 &80167567 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 448664, guid: fa86bdd10121aaa4aa0fc586f29bea18, type: 2}
+  m_PrefabInternal: {fileID: 80167566}
+>>>>>>> nadia_terrain_draft
 --- !u!1 &268638278
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +320,7 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 27e2f0bc400838744ab3b66c610c379f, type: 3}
   m_PrefabInternal: {fileID: 417767824}
+<<<<<<< HEAD
 --- !u!1 &460217032
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +469,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 80167566}
   m_GameObject: {fileID: 462573415}
   m_Mesh: {fileID: 4300004, guid: 9a22f4878a068cf4a8c3e648e69476c7, type: 3}
+=======
+>>>>>>> nadia_terrain_draft
 --- !u!1001 &525069179
 Prefab:
   m_ObjectHideFlags: 0
@@ -515,6 +525,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d261572b8dfb574888f3be9287f022b, type: 3}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!4 &525069180
 Transform:
   m_ObjectHideFlags: 0
@@ -528,6 +539,12 @@ Transform:
   m_Father: {fileID: 1488355781}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+--- !u!4 &525069180 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 6d261572b8dfb574888f3be9287f022b, type: 3}
+  m_PrefabInternal: {fileID: 525069179}
+>>>>>>> nadia_terrain_draft
 --- !u!1 &542375684
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +626,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &854771186
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +701,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 80167566}
   m_GameObject: {fileID: 854771186}
   m_Mesh: {fileID: 4300008, guid: 9a22f4878a068cf4a8c3e648e69476c7, type: 3}
+=======
+>>>>>>> nadia_terrain_draft
 --- !u!1 &1012070098
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +774,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1064026157
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +849,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 80167566}
   m_GameObject: {fileID: 1064026157}
   m_Mesh: {fileID: 4300000, guid: 9a22f4878a068cf4a8c3e648e69476c7, type: 3}
+=======
+>>>>>>> nadia_terrain_draft
 --- !u!1001 &1153989745
 Prefab:
   m_ObjectHideFlags: 0
@@ -932,6 +955,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b038aa153bdcf548967d953f85b028d, type: 3}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1 &1328636364
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +991,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+=======
+>>>>>>> nadia_terrain_draft
 --- !u!1 &1488355780
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1025,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1618716301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,3 +1235,5 @@ MeshFilter:
   m_PrefabInternal: {fileID: 80167566}
   m_GameObject: {fileID: 1917054663}
   m_Mesh: {fileID: 4300006, guid: 9a22f4878a068cf4a8c3e648e69476c7, type: 3}
+=======
+>>>>>>> nadia_terrain_draft
