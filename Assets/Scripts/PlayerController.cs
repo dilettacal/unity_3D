@@ -90,4 +90,14 @@ public class PlayerController : MonoBehaviour {
             isOnFloor = true;
         }
     }
+
+    //Collision handler - if player gets into a coin
+    private void OnTriggerEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Coin")
+        {
+            GameManager.instance.AddScore(1); //player gets in touch with coin
+            Destroy(col.gameObject); //coin should be destroyed from the screen
+        }
+    }
 }
