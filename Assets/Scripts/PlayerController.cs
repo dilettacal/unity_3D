@@ -78,8 +78,10 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    //Collision handler - if player gets into an object
     private void OnCollisionEnter(Collision col)
     {
+        //Tag is set in the Unity panel
         if(col.gameObject.tag == "Floor")
         {
             isOnFloor = true;
