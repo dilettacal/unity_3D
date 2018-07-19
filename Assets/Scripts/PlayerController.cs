@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+/**
+*  Home UI Controller
+*  Switches to the next Level1 Scene
+* */
 public class PlayerController : MonoBehaviour {
 
     public float speed = 15.0f;
@@ -79,12 +83,31 @@ public class PlayerController : MonoBehaviour {
     }
 
     //Collision handler - if player gets into an object
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision collision)
     {
         //Tag is set in the Unity panel
-        if(col.gameObject.tag == "Floor")
+        if(collision.gameObject.tag == "Floor")
         {
             isOnFloor = true;
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    //Collision handler - if player gets into a coin
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Coin")
+        {
+            GameManager.instance.AddScore(1); //player gets in touch with coin
+            Destroy(collider.gameObject); //coin should be destroyed from the screen
+            //if player gets in touch with the sphere --> next level
+
+        } else if (collider.gameObject.tag == "Goal")
+        {
+            GameManager.instance.NextLevel();//GameManager to the next level
         }
     }
 }
