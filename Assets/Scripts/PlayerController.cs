@@ -103,6 +103,11 @@ public class PlayerController : MonoBehaviour {
         {
             GameManager.instance.AddScore(1); //player gets in touch with coin
             Destroy(collider.gameObject); //coin should be destroyed from the screen
+            //if player gets in touch with the sphere --> next level
+
+        } else if (collider.gameObject.tag == "Goal")
+        {
+            GameManager.instance.NextLevel();//GameManager to the next level
         }
     }
 }
