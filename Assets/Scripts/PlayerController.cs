@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /**
- *  Home UI Controller
- *  Switches to the next Level1 Scene
- * */
+*  Home UI Controller
+*  Switches to the next Level1 Scene
+* */
 public class PlayerController : MonoBehaviour {
 
     public float speed = 15.0f;
@@ -88,6 +89,10 @@ public class PlayerController : MonoBehaviour {
         if(collision.gameObject.tag == "Floor")
         {
             isOnFloor = true;
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 
