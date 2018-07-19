@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ *  Home UI Controller
+ *  Switches to the next Level1 Scene
+ * */
 public class PlayerController : MonoBehaviour {
 
     public float speed = 15.0f;
