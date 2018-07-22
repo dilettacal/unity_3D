@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GoblinHandler : MonoBehaviour {
 
-    Rigidbody playerRigidbody;
-    bool isOnFloor;
-    Animator anim;
+    //Rigidbody playerRigidbody;
+    //bool isOnFloor;
+    //Animator anim;
 
     // Use this for initialization
     void Start () {
-        playerRigidbody = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        //playerRigidbody = GetComponent<Rigidbody>();
+        //anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -26,7 +26,7 @@ public class GoblinHandler : MonoBehaviour {
         //Tag is set in the Unity panel
         if (collision.gameObject.tag == "Floor")
         {
-            isOnFloor = true;
+            //isOnFloor = true;
         }
         else if (collision.gameObject.tag == "Enemy")
         {

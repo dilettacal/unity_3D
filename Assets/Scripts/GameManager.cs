@@ -51,11 +51,13 @@ public class GameManager : MonoBehaviour {
         if(level < maxLevel)
         {
             level++; //to the new level
+            SceneManager.LoadScene("Level" + level);
         } else
         {
-            level = 1; //come back to the first level
+            //level = 1; //come back to the first level
+            SceneManager.LoadScene("WinScene");
         }
-        SceneManager.LoadScene("Level" + level); //Levels should have this format "Level1", "Level2"...
+        //SceneManager.LoadScene("Level" + level); //Levels should have this format "Level1", "Level2"...
     }
 
     public void Reset()
