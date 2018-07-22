@@ -2,41 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinMovement : MonoBehaviour {
+public class GoblinMove : MonoBehaviour {
 
-	public float speed;            // The speed that the player will move at.
+	public float speed = 0.1f;            // The speed that the player will move at.
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
-    Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
-    int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
+    Rigidbody playerRB;          // Reference to the player's rigidbody.
+    int floor;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
     // Goblin part
     //private Animator anim;
-    //private CharacterController controller;
+    private CharacterController controller;
+    //public float speed = 6.0f;
     public float runSpeed = 3.7f;
     public float turnSpeed = 60.0f;
-    //public float gravity = 20.0f;
+    public float gravity = 20.0f;
+    //private bool battle_state;
+    private Vector3 moveDirection = Vector3.zero;
 
-    Quaternion originRotation;
+    Quaternion originRo;
     float angle;
     float mouseX;
     float mouseSens = 5f;
     float stopFactor = 5;
 
-    public float jumpHeight;
-
     void Awake()
     {
         // Create a layer mask for the floor layer.
-        floorMask = LayerMask.GetMask("Floor");
+        floor = LayerMask.GetMask("Floor");
 
         // Set up references.
         anim = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerRB = GetComponent<Rigidbody>();
 
-        originRotation = transform.rotation;
+        originRo = transform.rotation;
+
+        controller = GetComponent<CharacterController>();
     }
 
 
@@ -46,45 +49,43 @@ public class GoblinMovement : MonoBehaviour {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        float jump = Input.GetAxisRaw("Jump");
-        float run = Input.GetAxisRaw("Sprint");
-
         // Move the player around the scene.
-        Move(h, 0, v);
-        Move(h, 0, run);
+        //Move(h, v);
 
         // Turn the player to face the mouse cursor.
         //Turning();
 
         // Animate the player.
-        Animating(h, v, jump, run);
+        //Animating(h, v);
 
         
         mouseX += Input.GetAxis("Mouse X") * mouseSens;
         Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
-        transform.rotation = originRotation * rotationY;
-        if (Input.GetKey(KeyCode.W) || run != 0)
+        transform.rotation = originRo * rotationY;
+        /*if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward / stopFactor;
-        }
+        } */
 
+        Moving(h, v);
+        
     }
 
-    void Move(float h, float height, float v)
+    void Move(float h, float v)
     {
         // Set the movement vector based on the axis input.
-        movement.Set(h, height, v);
+        movement.Set(h, 0f, v);
 
         // Normalise the movement vector and make it proportional to the speed per second.
         movement = movement.normalized * speed * Time.deltaTime;
 
-       /* if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward;
-        } */
+        }
 
         // Move the player to it's current position plus the movement.
-        playerRigidbody.MovePosition(transform.position + movement);
+        playerRB.MovePosition(transform.position + movement);
     }
 
     void Turning ()
@@ -99,7 +100,7 @@ public class GoblinMovement : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             // Perform the raycast and if it hits something on the floor layer...
-            if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
+            if (Physics.Raycast(camRay, out floorHit, camRayLength, floor))
             {
                 // Create a vector from the player to the point on the floor the raycast from the mouse hit.
                 Vector3 playerToMouse = (floorHit.point - transform.position);
@@ -111,7 +112,7 @@ public class GoblinMovement : MonoBehaviour {
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse / stopFactor);
 
                 // Set the player's rotation to this new rotation.
-                playerRigidbody.MoveRotation(newRotation);
+                playerRB.MoveRotation(newRotation);
                 //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
             }
         }
@@ -127,32 +128,68 @@ public class GoblinMovement : MonoBehaviour {
         } */
     }
 
-    void Animating(float h, float v, float jump, float run)
+    void Animating(float h, float v)
     {
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = h != 0f || v != 0f;
+
         // Tell the animator whether or not the player is walking.
         anim.SetBool("IsWalking", walking);
 
-        if (run != 0)
+        if (Input.GetKeyDown("space"))
         {
-            anim.SetInteger("move", 2);//run
-            runSpeed = 2.6f;
+            bool jumping = h != 0f || v != 0f;
+            anim.SetBool("IsJumping", jumping);
         }
         else
         {
-            anim.SetInteger("move", 0);
+            //anim.SetBool("IsWalking", false);
+            anim.SetBool("IsJumping", false);
         }
-
-
-        if (jump != 0) //jump
-        {
-            anim.SetInteger("move", 7);
-            Move(0f, jumpHeight, 0f);
-        }
-
     }
     
-     
+    void Moving(float h, float v)
+    {
+        //anim.SetInteger("battle", 0);
+
+        //float hor = Input.GetAxis("Vertical");
+        // walk with up
+        if (Input.GetKey("up"))
+        //if (hor != 0)
+        {
+            anim.SetInteger("moving", 1);//walk
+            runSpeed = 1.0f;
+        } else
+        {
+            anim.SetInteger("moving", 0);
+        }
+
+        // run with Shift
+        if (Input.GetKey("left shift"))
+        {
+            anim.SetInteger("moving", 2);//run
+            runSpeed = 2.6f;         
+        }
+        else
+        {
+            anim.SetInteger("moving", 0);
+        }
+
+
+        if (Input.GetKeyDown("space")) //jump
+        {
+            anim.SetInteger("moving", 7);
+        }
+
+        if (controller.isGrounded)
+        {
+            moveDirection = transform.forward * Input.GetAxis("Vertical") * speed * runSpeed;
+
+        }
+        float turn = Input.GetAxis("Horizontal");
+        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        controller.Move(moveDirection * Time.deltaTime);
+        moveDirection.y -= gravity * Time.deltaTime;
+    }
 }
 
