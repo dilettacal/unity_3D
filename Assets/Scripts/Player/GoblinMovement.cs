@@ -15,7 +15,7 @@ public class GoblinMovement : MonoBehaviour {
     // Goblin part
     //private Animator anim;
     //private CharacterController controller;
-    public float runSpeed = 3.7f;
+    public float runSpeed;
     public float turnSpeed = 60.0f;
     //public float gravity = 20.0f;
 
@@ -137,7 +137,7 @@ public class GoblinMovement : MonoBehaviour {
         if (run != 0)
         {
             anim.SetInteger("move", 2);//run
-            runSpeed = 2.6f;
+            //runSpeed = 2.6f;
         }
         else
         {
