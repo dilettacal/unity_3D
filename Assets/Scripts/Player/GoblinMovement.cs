@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoblinMovement : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class GoblinMovement : MonoBehaviour {
     float angle;
     float mouseX;
     float mouseSens = 5f;
-    float stopFactor = 5;
+    //public float stopFactor;
 
     public float jumpHeight;
 
@@ -52,20 +53,26 @@ public class GoblinMovement : MonoBehaviour {
         // Move the player around the scene.
         Move(h, 0, v);
         Move(h, 0, run);
+        
 
         // Turn the player to face the mouse cursor.
         //Turning();
 
         // Animate the player.
-        Animating(h, v, jump, run);
+        Animating(h, v, jump, run, false);
 
-        
+        /*if (Input.GetKeyDown("space"))
+        {
+            transform.Translate(Vector3.up * jumpHeight * Time.deltaTime, Space.World);
+        } */
+
+
         mouseX += Input.GetAxis("Mouse X") * mouseSens;
         Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
         transform.rotation = originRotation * rotationY;
         if (Input.GetKey(KeyCode.W) || run != 0)
         {
-            transform.position += transform.forward / stopFactor;
+            transform.position += transform.forward;
         }
 
     }
@@ -108,7 +115,7 @@ public class GoblinMovement : MonoBehaviour {
                 playerToMouse.y = 0f;
 
                 // Create a quaternion (rotation) based on looking down the vector from the player to the mouse.
-                Quaternion newRotation = Quaternion.LookRotation(playerToMouse / stopFactor);
+                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
                 // Set the player's rotation to this new rotation.
                 playerRigidbody.MoveRotation(newRotation);
@@ -127,7 +134,7 @@ public class GoblinMovement : MonoBehaviour {
         } */
     }
 
-    void Animating(float h, float v, float jump, float run)
+    void Animating(float h, float v, float jump, float run, bool die)
     {
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = h != 0f || v != 0f;
@@ -148,11 +155,55 @@ public class GoblinMovement : MonoBehaviour {
         if (jump != 0) //jump
         {
             anim.SetInteger("move", 7);
-            Move(0f, jumpHeight, 0f);
+            transform.Translate(Vector3.up * jumpHeight * Time.deltaTime, Space.World);
+        }
+
+        if (die)
+        {
+            anim.SetInteger("move", 5); 
         }
 
     }
-    
-     
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Tag is set in the Unity panel
+        if (collision.gameObject.tag == "Floor")
+        {
+            //isOnFloor = true;
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            anim.SetInteger("move", 5);
+            Animating(0, 0, 0, 0, true);
+            anim.SetTrigger("Die");
+        }
+        else if (collision.gameObject.tag == "Mushroom")
+        {
+            anim.SetInteger("move", 5);
+            Animating(0, 0, 0, 0, true);
+            anim.SetTrigger("Die");
+        }
+        else
+        {
+            anim.SetInteger("move", 0);
+        }
+    }
+
+    //Collision handler - if player gets into a coin
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Coin")
+        {
+            GameManager.instance.AddScore(1); //player gets in touch with coin
+            Destroy(collider.gameObject); //coin should be destroyed from the screen
+            //if player gets in touch with the sphere --> next level
+
+        }
+        else if (collider.gameObject.tag == "Goal")
+        {
+            GameManager.instance.NextLevel();//GameManager to the next level
+        }
+    }
 }
 

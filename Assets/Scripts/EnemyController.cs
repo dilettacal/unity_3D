@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public float distance = 2f; //Beweungsdistanz
+    public float distance; //Beweungsdistanz
     public bool moveUp = false;
     public bool moveSide = true; //rechts und links moeglich
 
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         if (moveUp)
         {
             //ping pong Funktion bewegt nach oben und nach unten
-            trans.position = new Vector3(startingPos.x, startingPos.y + Mathf.PingPong(Time.time, distance), startingPos.z);
+            trans.position = new Vector3(startingPos.x, startingPos.y + Mathf.PingPong(Time.time, distance/3), startingPos.z);
         }
         if (moveSide)
         {
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
         }
         if (moveSide && moveUp)
         {
-            trans.position = new Vector3(startingPos.x + Mathf.PingPong(Time.time, distance), startingPos.y + Mathf.PingPong(Time.time, distance), startingPos.z);
+            trans.position = new Vector3(startingPos.x + Mathf.PingPong(Time.time, distance/2), startingPos.y + Mathf.PingPong(Time.time, distance), startingPos.z);
         }
 
     }
