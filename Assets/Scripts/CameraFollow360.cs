@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera360Follow : MonoBehaviour {
+public class CameraFollow360 : MonoBehaviour
+{
 
     static public Transform player; //access to all player connected to the game
-    public float distance = 10;
-    public float height = 5;
-    public Vector3 lookOffset = new Vector3(0, 1, 0);
-    float cameraSpeed = 100;
-    float rotSpeed = 100;
+    public float distance = 50;
+    public float height = 70;
+    public Vector3 lookOffset = new Vector3(0, 10, 0);
+    float cameraSpeed = 80;
+    float rotSpeed = 80;
 
     void FixedUpdate()
     {
