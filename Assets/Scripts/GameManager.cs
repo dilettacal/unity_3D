@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Behaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
     public int score = 0;
+
     public int highscore = 0;
 
     //Switching among game levels
@@ -34,9 +36,10 @@ public class GameManager : MonoBehaviour {
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
-	public void AddScore(int newScoreValue)
+    [ClientRpc]
+	public void RpcAddScore(int newScoreValue)
     {
-        score += newScoreValue; //scores higher
+        //score += newScoreValue; //scores higher
         if(score > highscore)
         {
             //update highscore
@@ -44,6 +47,26 @@ public class GameManager : MonoBehaviour {
             //save permanently in the game
             PlayerPrefs.SetInt("highscore", highscore); 
         }
+    }
+
+    public void AddScore(int newScore)
+    {
+       /* if (!isServer)
+        {
+            return;
+        }*/
+        score += score;
+        RpcAddScore(score);
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetHighScore()
+    {
+        return highscore;
     }
 
     public void NextLevel()
