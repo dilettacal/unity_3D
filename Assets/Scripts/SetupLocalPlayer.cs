@@ -13,6 +13,7 @@ public class SetupLocalPlayer : NetworkBehaviour {
         {
             //this Goblin wird vom aktuellen Benutzer verwendet
             GetComponent<GoblinMovement>().enabled = true;
+            CameraFollow360.player = this.gameObject.transform;
         }
         else
         {
