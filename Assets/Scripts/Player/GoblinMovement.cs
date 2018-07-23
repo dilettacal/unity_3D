@@ -11,7 +11,7 @@ public class GoblinMovement : MonoBehaviour {
     Animator anim;                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
-    float camRayLength = 100f;          // The length of the ray from the camera into the scene.
+    float camRayLength = 1000f;          // The length of the ray from the camera into the scene.
 
     // Goblin part
     //private Animator anim;
@@ -51,12 +51,11 @@ public class GoblinMovement : MonoBehaviour {
         float run = Input.GetAxisRaw("Sprint");
 
         // Move the player around the scene.
-        Move(h, 0, v);
+        //Move(h, 0, v);
         Move(h, 0, run);
-        
 
         // Turn the player to face the mouse cursor.
-        //Turning();
+        Turning();
 
         // Animate the player.
         Animating(h, v, jump, run, false);
@@ -66,14 +65,14 @@ public class GoblinMovement : MonoBehaviour {
             transform.Translate(Vector3.up * jumpHeight * Time.deltaTime, Space.World);
         } */
 
-
+        /*
         mouseX += Input.GetAxis("Mouse X") * mouseSens;
         Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
         transform.rotation = originRotation * rotationY;
         if (Input.GetKey(KeyCode.W) || run != 0)
         {
             transform.position += transform.forward;
-        }
+        } */
 
     }
 
@@ -85,7 +84,7 @@ public class GoblinMovement : MonoBehaviour {
         // Normalise the movement vector and make it proportional to the speed per second.
         movement = movement.normalized * speed * Time.deltaTime;
 
-       /* if (Input.GetKey(KeyCode.W))
+        /*if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward;
         } */
@@ -103,8 +102,8 @@ public class GoblinMovement : MonoBehaviour {
         // Create a RaycastHit variable to store information about what was hit by the ray.
         RaycastHit floorHit;
 
-        if (Input.GetMouseButton(0))
-        {
+        //if (Input.GetMouseButton(0))
+        //{
             // Perform the raycast and if it hits something on the floor layer...
             if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
             {
@@ -121,7 +120,7 @@ public class GoblinMovement : MonoBehaviour {
                 playerRigidbody.MoveRotation(newRotation);
                 //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
             }
-        }
+        //}
 
        /* if (Input.GetMouseButton(0))
         {
