@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/GamblinController.cs.meta
 guid: f343deab6bd472940acb8e41b8f53efa
+=======
+guid: 354a15ce0124a5e488694a4b1fe7f81e
+>>>>>>> 4503abc59242a734eb5ac917dc09ba21ffcb3aa1:Assets/Scripts/Score.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
