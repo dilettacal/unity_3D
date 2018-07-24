@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GoblinMovement : MonoBehaviour {
 
-	public float speed;            // The speed that the player will move at.
+	public float walkSpeed;            // The speed that the player will move at.
+    public float runSpeed;
+
+    // walkSpeed = 0.3, runSpeed = 0.5, jumpHeight = 20
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
@@ -13,10 +16,6 @@ public class GoblinMovement : MonoBehaviour {
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float camRayLength = 1000f;          // The length of the ray from the camera into the scene.
 
-    // Goblin part
-    //private Animator anim;
-    //private CharacterController controller;
-    public float runSpeed;
     public float turnSpeed = 60.0f;
     //public float gravity = 20.0f;
 
@@ -52,7 +51,7 @@ public class GoblinMovement : MonoBehaviour {
 
         // Move the player around the scene.
         //Move(h, 0, v);
-        Move(h, 0, run);
+        //Move(h, 0, run);
 
         // Turn the player to face the mouse cursor.
         Turning();
@@ -69,14 +68,19 @@ public class GoblinMovement : MonoBehaviour {
         mouseX += Input.GetAxis("Mouse X") * mouseSens;
         Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
         transform.rotation = originRotation * rotationY;
-        if (Input.GetKey(KeyCode.W) || run != 0)
+        */
+        if (v != 0)
         {
-            transform.position += transform.forward;
-        } */
+            //transform.position += transform.forward;
+            Move(h, 0f, v, walkSpeed);
+        } else if (run != 0)
+        {
+            Move(h, 0f, run, runSpeed);
+        }
 
     }
 
-    void Move(float h, float height, float v)
+    void Move(float h, float height, float v, float speed)
     {
         // Set the movement vector based on the axis input.
         movement.Set(h, height, v);
@@ -90,7 +94,8 @@ public class GoblinMovement : MonoBehaviour {
         } */
 
         // Move the player to it's current position plus the movement.
-        playerRigidbody.MovePosition(transform.position + movement);
+        playerRigidbody.position += (transform.forward * speed);
+        //playerRigidbody.MovePosition(transform.position + movement);
     }
 
     void Turning ()
