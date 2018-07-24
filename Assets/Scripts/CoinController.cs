@@ -15,10 +15,10 @@ public class CoinController : MonoBehaviour {
 	void Update () {
         float angle = rotationSpeed * Time.deltaTime; //time from last call of this function
         transform.Rotate(Vector3.up * angle, Space.World); //Coin rotates direction up with angle angle in the actual world
-		
         //coinsGenerate(6);
 	}
 
+<<<<<<< HEAD
     //Test server
     void OnCollisionEnter(Collision collision)
     {
