@@ -17,4 +17,17 @@ public class CoinController : MonoBehaviour {
         transform.Rotate(Vector3.up * angle, Space.World); //Coin rotates direction up with angle angle in the actual world
 		
 	}
+
+    //Test server
+    void OnCollisionEnter(Collision collision)
+    {
+        var hit = collision.gameObject; //player
+        var score = hit.GetComponent<Score>();
+        Debug.Log(score);
+        if (score != null)
+        {
+            score.AddNewScore(1);
+        }
+        Destroy(gameObject);
+    }
 }
