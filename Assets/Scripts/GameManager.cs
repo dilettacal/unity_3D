@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     //Switching among game levels
     //max level firstly=2
     public int level = 1;
-    private int maxLevel = 2;
+    private int maxLevel =1;
 
 	void Awake () {
 
