@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //nicht mehr notwendig
 public class ScoreManager : MonoBehaviour {
 
-    /*public Text scoreLabel;
+    public Text scoreLabel;
     public const int MAX_SCORE = 5;
 
 	// Use this for initialization
@@ -19,11 +19,12 @@ public class ScoreManager : MonoBehaviour {
     {
         //Updates the text of the score on Level1 screen
         scoreLabel.text = "Score: " + GameManager.instance.score + "/" + MAX_SCORE;
+        Debug.Log("Label: " + scoreLabel.text);
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         updateScore();
 		
-	}*/
+	}
 }

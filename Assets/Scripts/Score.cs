@@ -32,7 +32,9 @@ public class Score : NetworkBehaviour {
 
         currentScore += score;
         Debug.Log("Neues SCore: " + currentScore);
-        OnCatchAdd(currentScore);
+        // OnCatchAdd(currentScore);
+        //new solution - 2018-08-24
+        GameManager.instance.ScoreToGUI(currentScore);
         if(currentScore == maxScore)
         {
             currentScore = maxScore;

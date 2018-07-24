@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
-   // public int score = 0;
+    public int score = 0;
 
     public int highscore = 0;
 
     //Switching among game levels
-    //max level firstly=2
     public int level = 1;
     private int maxLevel =1;
 
@@ -37,18 +36,19 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    /*public void AddScore(int newScore)
+    public void ScoreToGUI(int newScore)
     {
-      
-        score += newScore;
-        if (score > highscore)
+
+        //alte Version
+        //score += newScore;
+        if (newScore > highscore)
         {
             //update highscore
             highscore = score;
             //save permanently in the game
             PlayerPrefs.SetInt("highscore", highscore);
         }
-    }*/
+    }
 
     
 
