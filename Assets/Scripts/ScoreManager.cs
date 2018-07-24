@@ -7,8 +7,8 @@ public class ScoreManager : MonoBehaviour {
 
     public Text scoreLabel;
     public const int MAX_SCORE = 5;
-    public static ScoreManager instance = null;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -56,6 +56,11 @@ public class ScoreManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
        UpdateScore();
+=======
+	// Use this for initialization
+	void Start () {
+        updateScore();
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -74,8 +79,12 @@ public class ScoreManager : MonoBehaviour {
 =======
     }
 
+<<<<<<< HEAD
     public void UpdateScore()
 >>>>>>> parent of 26f3c2a... Some changes
+=======
+    public void updateScore()
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
     {
         //Updates the text of the score on Level1 screen
         scoreLabel.text = "Score: " + GameManager.instance.score + "/" + MAX_SCORE;
@@ -83,6 +92,7 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -96,6 +106,9 @@ public class ScoreManager : MonoBehaviour {
 =======
         UpdateScore();
 >>>>>>> parent of 26f3c2a... Some changes
+=======
+        updateScore();
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
 		
 	}
 }

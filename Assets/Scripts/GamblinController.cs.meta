@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Score.cs.meta
 <<<<<<< HEAD
-guid: f343deab6bd472940acb8e41b8f53efa
+guid: f62792cfe4db11e4f949fb9400331ec4
 =======
-guid: 96116449abf75f14a8b4eb1af33e32c7
+guid: f343deab6bd472940acb8e41b8f53efa
 >>>>>>> b5052ffe65623cba910b8e01bdcd6c4d26c5fcf7
+=======
+guid: f343deab6bd472940acb8e41b8f53efa
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722:Assets/Scripts/GamblinController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
