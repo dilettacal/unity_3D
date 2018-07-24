@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Score : NetworkBehaviour {
 
-    public const int maxScore = 10;
+    public const int maxScore = 5;
 
     //score derzeit in GameManager
     [SyncVar(hook = "OnCatchAdd")]
@@ -32,8 +32,8 @@ public class Score : NetworkBehaviour {
 
         currentScore += score;
         Debug.Log("Neues SCore: " + currentScore);
-
-        if(currentScore == maxScore)
+        scoreLabel.text = "Score: " + currentScore + "/" + maxScore;
+        if (currentScore == maxScore)
         {
             currentScore = maxScore;
             // called on the Server, but invoked on the Clients
@@ -43,7 +43,8 @@ public class Score : NetworkBehaviour {
 
     public void OnCatchAdd(int score)
     {
-        scoreLabel.text = "Score: " + currentScore+ "/" + 10;
+        Debug.Log("Funktion OnCatchAdd aufgerufen");
+        scoreLabel.text = "Score: " + currentScore+ "/" + maxScore;
         Debug.Log(scoreLabel.text);
     }
 

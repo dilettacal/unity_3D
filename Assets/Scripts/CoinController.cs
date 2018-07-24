@@ -15,10 +15,9 @@ public class CoinController : MonoBehaviour {
 	void Update () {
         float angle = rotationSpeed * Time.deltaTime; //time from last call of this function
         transform.Rotate(Vector3.up * angle, Space.World); //Coin rotates direction up with angle angle in the actual world
-        //coinsGenerate(6);
+		
 	}
 
-<<<<<<< HEAD
     //Test server
     void OnCollisionEnter(Collision collision)
     {
@@ -30,30 +29,5 @@ public class CoinController : MonoBehaviour {
             score.AddNewScore(1);
         }
         Destroy(gameObject);
-=======
-    void coinsGenerate(int anzahl)
-    {
-        //MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
-        //Resolution terrainSize = gameObject.get
-
-        /*        float minX = renderer.bounds.min.x;
-                float maxX = renderer.bounds.max.x;
-                float minZ = renderer.bounds.min.z;
-                float maxZ = renderer.bounds.max.x;
-                
-                float newX = Random.Range(50, 750);
-                float newZ = Random.Range(50, 750);
-                float newY = gameObject.transform.position.y+7;
-
-                int i = 0;
-                while(i < anzahl)
-                {
-                    GameObject coin = GameObject.FindGameObjectWithTag("Coin");
-                    coin.transform.position = new Vector3(newX, newY, newZ);
-                }
-                
-        Debug.Log("Anzahl ist: "+anzahl); */
-        
->>>>>>> 2c733888cdba1c058937bf1c5f9cbb2eee77e203
     }
 }

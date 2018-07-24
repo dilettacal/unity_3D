@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-//Steuert den Lokalen Player (also im lokalen Fenster)
+/**
+ * Client erkennt durch diese Klasse, seinen Player zu identifizieren
+ * */
 public class SetupLocalPlayer : NetworkBehaviour {
 
-    //Get name label over the head of the actual player
     public Text namePrefab;
     public Text nameLabel;
     public Transform namePos;
@@ -17,14 +18,12 @@ public class SetupLocalPlayer : NetworkBehaviour {
     [SyncVar(hook = "OnChangeName")]
     public string pName = "player";
 
-    //on the client
     void OnChangeName(string n)
     {
         pName = n;
         nameLabel.text = pName;
     }
 
-    //Commands --> Server
     [Command]
     public void CmdChangeName(string newName)
     {
@@ -36,44 +35,37 @@ public class SetupLocalPlayer : NetworkBehaviour {
     {
         if (isLocalPlayer)
         {
-            //This is the text box shown in the game window
             textboxname = GUI.TextField(new Rect(25, 15, 100, 25), textboxname);
-            //Any changes to this text box should be saved
             if (GUI.Button(new Rect(130, 15, 35, 25), "Set"))
                 CmdChangeName(textboxname);
         }
     }
 
-
     // Use this for initialization
-    void Start () {
-
+    void Start()
+    {
         if (isLocalPlayer)
         {
-            //this Goblin wird vom aktuellen Benutzer verwendet
             GetComponent<GoblinMovement>().enabled = true;
-            CameraFollow360.player = this.gameObject.transform;
         }
         else
         {
-            //this Goblin wird von einem anderen Benutzer verwendet
             GetComponent<GoblinMovement>().enabled = false;
         }
 
         GameObject canvas = GameObject.FindWithTag("MainCanvas");
         nameLabel = Instantiate(namePrefab, Vector3.zero, Quaternion.identity) as Text;
-        nameLabel.transform.SetParent(canvas.transform); //Name becomes here child of the canvas
+        nameLabel.transform.SetParent(canvas.transform);
     }
 
     public void OnDestroy()
     {
-        //Client disconnects then remove the name
         if (nameLabel != null)
             Destroy(nameLabel.gameObject);
     }
 
-    // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         //determine if the object is inside the camera's viewing volume
         if (nameLabel != null)
         {
