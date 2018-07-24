@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//nicht mehr notwendig
 public class ScoreManager : MonoBehaviour {
 
-    public Text scoreLabel;
+    /*public Text scoreLabel;
     public const int MAX_SCORE = 5;
 
 	// Use this for initialization
@@ -24,5 +25,5 @@ public class ScoreManager : MonoBehaviour {
 	void FixedUpdate () {
         updateScore();
 		
-	}
+	}*/
 }
