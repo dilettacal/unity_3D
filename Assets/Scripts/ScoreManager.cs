@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//nicht mehr notwendig
 public class ScoreManager : MonoBehaviour {
 
     public Text scoreLabel;
@@ -17,10 +16,12 @@ public class ScoreManager : MonoBehaviour {
 
     public void updateScore()
     {
-        //Updates the text of the score on Level1 screen
-        scoreLabel.text = "Score: " + GameManager.instance.score + "/" + MAX_SCORE;
+        scoreLabel.text = "Score: " + GameManager.instance.score.ToString() + "/" + MAX_SCORE;
+
+        //Das wird in der Console angezeigt aber Label wird nicht aktualisiert
         Debug.Log("Label: " + scoreLabel.text);
     }
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {

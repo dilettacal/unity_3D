@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
         {
             instance = this; //reference to this game manager
             //Switching among scenes --> only 1 game manager!!
+            score = 0;
         } else if(instance != this)
         {
             //destroy
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour {
 	
     private void Start()
     {
+       score = 0;
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
@@ -73,8 +75,21 @@ public class GameManager : MonoBehaviour {
 
     public void Reset()
     {
-        //score = 0;
+        score = 0;
         level = 1;
         SceneManager.LoadScene("Level" + level); //Loads "Level1"
+    }
+
+    public void AddScore(int newScore)
+    {
+        score += newScore;
+        if (score > highscore)
+        {
+            //update highscore
+            highscore = score;
+            //save permanently in the game
+            PlayerPrefs.SetInt("highscore", highscore);
+            PlayerPrefs.SetInt("score", score);
+        }
     }
 }
