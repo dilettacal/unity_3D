@@ -18,7 +18,7 @@ public class CoinController : MonoBehaviour {
         //coinsGenerate(6);
 	}
 
-<<<<<<< HEAD
+
     //Test server
     void OnCollisionEnter(Collision collision)
     {
@@ -30,13 +30,13 @@ public class CoinController : MonoBehaviour {
             score.AddNewScore(1);
         }
         Destroy(gameObject);
-=======
-    void coinsGenerate(int anzahl)
+    }
+    /*void coinsGenerate(int anzahl)
     {
         //MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
         //Resolution terrainSize = gameObject.get
 
-        /*        float minX = renderer.bounds.min.x;
+                float minX = renderer.bounds.min.x;
                 float maxX = renderer.bounds.max.x;
                 float minZ = renderer.bounds.min.z;
                 float maxZ = renderer.bounds.max.x;
@@ -52,8 +52,7 @@ public class CoinController : MonoBehaviour {
                     coin.transform.position = new Vector3(newX, newY, newZ);
                 }
                 
-        Debug.Log("Anzahl ist: "+anzahl); */
-        
->>>>>>> 2c733888cdba1c058937bf1c5f9cbb2eee77e203
-    }
+        Debug.Log("Anzahl ist: "+anzahl); 
+
+    }*/
 }

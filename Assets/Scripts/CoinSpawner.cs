@@ -19,7 +19,8 @@ public class CoinSpawner : NetworkBehaviour
         {
             var spawnPosition = new Vector3(
                 Random.Range(50f, 750f),
-                Random.Range(1.0f, 8.0f),
+                //Random.Range(1.0f, 8.0f),
+                25,
                 Random.Range(50.0f, 730.0f));
 
             var spawnRotation = Quaternion.Euler(

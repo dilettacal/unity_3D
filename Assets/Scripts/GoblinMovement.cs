@@ -237,11 +237,11 @@ public class GoblinMovement : MonoBehaviour
 
     void JumpHeightNormalize()
     {
-        jumpHeight = jumpHeight / POWERUP_DURATION;
+        jumpHeight = jumpHeight / 5;
     }
 
     void RunSpeedNormalize()
     {
-        runSpeed = runSpeed / POWERUP_DURATION;
+        runSpeed = runSpeed / 3;
     }
 }
