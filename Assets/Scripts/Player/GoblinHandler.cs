@@ -10,7 +10,7 @@ public class GoblinHandler : MonoBehaviour {
     //Animator anim;
 
     // Use this for initialization
-    void Start () {
+    /*void Start () {
         //playerRigidbody = GetComponent<Rigidbody>();
         //anim = GetComponent<Animator>();
     }
@@ -35,7 +35,7 @@ public class GoblinHandler : MonoBehaviour {
     }
 
     //Collision handler - if player gets into a coin
-    private void OnTriggerEnter(Collider collider)
+    /*private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Coin")
         {
@@ -48,5 +48,5 @@ public class GoblinHandler : MonoBehaviour {
         {
             GameManager.instance.NextLevel();//GameManager to the next level
         }
-    }
+    }*/
 }

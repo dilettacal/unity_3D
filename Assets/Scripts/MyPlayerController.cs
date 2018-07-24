@@ -97,7 +97,7 @@ public class MyPlayerController : MonoBehaviour {
     }
 
     //Collision handler - if player gets into a coin
-    private void OnTriggerEnter(Collider collider)
+   /* private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Coin")
         {
@@ -109,5 +109,5 @@ public class MyPlayerController : MonoBehaviour {
         {
             GameManager.instance.NextLevel();//GameManager to the next level
         }
-    }
+    }*/
 }

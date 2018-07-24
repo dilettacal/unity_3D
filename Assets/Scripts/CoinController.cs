@@ -18,6 +18,19 @@ public class CoinController : MonoBehaviour {
         //coinsGenerate(6);
 	}
 
+<<<<<<< HEAD
+    //Test server
+    void OnCollisionEnter(Collision collision)
+    {
+        var hit = collision.gameObject; //player
+        var score = hit.GetComponent<Score>();
+        Debug.Log(score);
+        if (score != null)
+        {
+            score.AddNewScore(1);
+        }
+        Destroy(gameObject);
+=======
     void coinsGenerate(int anzahl)
     {
         //MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
@@ -41,5 +54,6 @@ public class CoinController : MonoBehaviour {
                 
         Debug.Log("Anzahl ist: "+anzahl); */
         
+>>>>>>> 2c733888cdba1c058937bf1c5f9cbb2eee77e203
     }
 }

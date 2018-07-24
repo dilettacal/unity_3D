@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
-    public int score = 0;
+   // public int score = 0;
 
     public int highscore = 0;
 
@@ -36,25 +36,10 @@ public class GameManager : MonoBehaviour {
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
-    //Nicht verwendet
-	public void RpcAddScore(int newScoreValue)
-    {
-        //score += newScoreValue; //scores higher
-        if(score > highscore)
-        {
-            //update highscore
-            highscore = score;
-            //save permanently in the game
-            PlayerPrefs.SetInt("highscore", highscore); 
-        }
-    }
 
-    public void AddScore(int newScore)
+    /*public void AddScore(int newScore)
     {
-       /* if (!isServer)
-        {
-            return;
-        }*/
+      
         score += newScore;
         if (score > highscore)
         {
@@ -63,12 +48,9 @@ public class GameManager : MonoBehaviour {
             //save permanently in the game
             PlayerPrefs.SetInt("highscore", highscore);
         }
-    }
+    }*/
 
-    public int GetScore()
-    {
-        return score;
-    }
+    
 
     public int GetHighScore()
     {
@@ -91,7 +73,7 @@ public class GameManager : MonoBehaviour {
 
     public void Reset()
     {
-        score = 0;
+        //score = 0;
         level = 1;
         SceneManager.LoadScene("Level" + level); //Loads "Level1"
     }
