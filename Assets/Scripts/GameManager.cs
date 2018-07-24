@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
     public int score = 0;
+
     public int highscore = 0;
 
     //Switching among game levels
     //max level firstly=2
     public int level = 1;
-    public int maxLevel = 2;
+    private int maxLevel = 2;
 
 	void Awake () {
 
@@ -34,9 +36,10 @@ public class GameManager : MonoBehaviour {
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
-	public void AddScore(int newScoreValue)
+    //Nicht verwendet
+	public void RpcAddScore(int newScoreValue)
     {
-        score += newScoreValue; //scores higher
+        //score += newScoreValue; //scores higher
         if(score > highscore)
         {
             //update highscore
@@ -44,6 +47,32 @@ public class GameManager : MonoBehaviour {
             //save permanently in the game
             PlayerPrefs.SetInt("highscore", highscore); 
         }
+    }
+
+    public void AddScore(int newScore)
+    {
+       /* if (!isServer)
+        {
+            return;
+        }*/
+        score += newScore;
+        if (score > highscore)
+        {
+            //update highscore
+            highscore = score;
+            //save permanently in the game
+            PlayerPrefs.SetInt("highscore", highscore);
+        }
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetHighScore()
+    {
+        return highscore;
     }
 
     public void NextLevel()
