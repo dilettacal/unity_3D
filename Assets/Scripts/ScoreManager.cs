@@ -9,6 +9,7 @@ public class ScoreManager : NetworkBehaviour {
     public Text scoreLabel;
     public const int MAX_SCORE = 5;
 
+<<<<<<< HEAD
     [SyncVar(hook = "OnChangeScore")]
     public int currentScore;
     
@@ -41,15 +42,24 @@ public class ScoreManager : NetworkBehaviour {
     {
         scoreLabel.text = "Score: " + currentScore + "/" + MAX_SCORE;
     }
+=======
+	// Use this for initialization
+	void Start () {
+        updateScore();
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
 
     public int GetCurrentScore()
     {
        return currentScore;
     }
 
+<<<<<<< HEAD
     
 
     /*public void UpdateScore()
+=======
+    public void updateScore()
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
     {
         //Updates the text of the score on Level1 screen
         scoreLabel.text = "Score: " + GameManager.instance.score + "/" + MAX_SCORE;
@@ -59,7 +69,11 @@ public class ScoreManager : NetworkBehaviour {
    
 	// Update is called once per frame
 	void FixedUpdate () {
+<<<<<<< HEAD
         showScore();
+=======
+        updateScore();
+>>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
 		
 	}
 
