@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     [SyncVar(hook = "OnChangeScore")]
     public int currentScore;
     
@@ -25,6 +26,9 @@ public class ScoreManager : MonoBehaviour {
     }
 
     public void ManageScore(int amount)
+=======
+    void Awake()
+>>>>>>> parent of 26f3c2a... Some changes
 =======
     void Awake()
 >>>>>>> parent of 26f3c2a... Some changes
@@ -55,12 +59,18 @@ public class ScoreManager : MonoBehaviour {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 
     /*public void UpdateScore()
 =======
     public void updateScore()
 >>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
+=======
+    }
+
+    public void UpdateScore()
+>>>>>>> parent of 26f3c2a... Some changes
 =======
     }
 
@@ -75,10 +85,14 @@ public class ScoreManager : MonoBehaviour {
 	void FixedUpdate () {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         showScore();
 =======
         updateScore();
 >>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
+=======
+        UpdateScore();
+>>>>>>> parent of 26f3c2a... Some changes
 =======
         UpdateScore();
 >>>>>>> parent of 26f3c2a... Some changes
