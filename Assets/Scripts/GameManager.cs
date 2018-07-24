@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
-    //public int score = 0;
-    private ScoreManager scm; 
+    public int score = 0;
+
     public int highscore = 0;
 
     //Switching among game levels
@@ -16,9 +16,7 @@ public class GameManager : MonoBehaviour {
     public int level = 1;
     private int maxLevel = 2;
 
-    private int score;
-
-    void Awake () {
+	void Awake () {
 
         if(instance == null)
         {
@@ -38,15 +36,26 @@ public class GameManager : MonoBehaviour {
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
+    //Nicht verwendet
+	public void RpcAddScore(int newScoreValue)
+    {
+        //score += newScoreValue; //scores higher
+        if(score > highscore)
+        {
+            //update highscore
+            highscore = score;
+            //save permanently in the game
+            PlayerPrefs.SetInt("highscore", highscore); 
+        }
+    }
 
     public void AddScore(int newScore)
     {
-        /* if (!isServer)
-         {
-             return;
-         }*/
-        scm.ManageScore(1);
-        score = scm.GetCurrentScore();
+       /* if (!isServer)
+        {
+            return;
+        }*/
+        score += newScore;
         if (score > highscore)
         {
             //update highscore
@@ -58,7 +67,7 @@ public class GameManager : MonoBehaviour {
 
     public int GetScore()
     {
-        return scm.GetCurrentScore();
+        return score;
     }
 
     public int GetHighScore()
@@ -82,7 +91,7 @@ public class GameManager : MonoBehaviour {
 
     public void Reset()
     {
-        //score = 0; //set score
+        score = 0;
         level = 1;
         SceneManager.LoadScene("Level" + level); //Loads "Level1"
     }

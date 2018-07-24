@@ -205,7 +205,8 @@ public class GoblinMovement : MonoBehaviour {
     {
         if (collider.gameObject.tag == "Coin")
         {
-           GameManager.instance.AddScore(1); //player gets in touch with coin
+            GameManager.instance.AddScore(1); //player gets in touch with coin
+            Debug.Log(GameManager.instance.score);
             Destroy(collider.gameObject); //coin should be destroyed from the screen
             //if player gets in touch with the sphere --> next level
 

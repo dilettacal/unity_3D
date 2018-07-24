@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class ScoreManager : NetworkBehaviour {
+public class ScoreManager : MonoBehaviour {
 
     public Text scoreLabel;
     public const int MAX_SCORE = 5;
+    public static ScoreManager instance = null;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     [SyncVar(hook = "OnChangeScore")]
     public int currentScore;
@@ -24,23 +25,23 @@ public class ScoreManager : NetworkBehaviour {
     }
 
     public void ManageScore(int amount)
+=======
+    void Awake()
+>>>>>>> parent of 26f3c2a... Some changes
     {
-        if (!isServer)
-        {
-            return;
-        }
 
-        currentScore += amount;
-        if(currentScore == MAX_SCORE)
+        if (instance == null)
         {
-            //erstmals so
-            GameManager.instance.NextLevel();
+            instance = this; //reference to this game manager
+            //Switching among scenes --> only 1 game manager!!
         }
-    }
+        else if (instance != this)
+        {
+            //destroy
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject); //when a new scene is loaded, game manager should be transferred to the new scene
 
-    public void OnChangeScore(int score)
-    {
-        scoreLabel.text = "Score: " + currentScore + "/" + MAX_SCORE;
     }
 =======
 	// Use this for initialization
@@ -48,11 +49,11 @@ public class ScoreManager : NetworkBehaviour {
         updateScore();
 >>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
 
-    public int GetCurrentScore()
-    {
-       return currentScore;
-    }
+    // Use this for initialization
+    void Start () {
+       UpdateScore();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     
 
@@ -60,27 +61,27 @@ public class ScoreManager : NetworkBehaviour {
 =======
     public void updateScore()
 >>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
+=======
+    }
+
+    public void UpdateScore()
+>>>>>>> parent of 26f3c2a... Some changes
     {
         //Updates the text of the score on Level1 screen
         scoreLabel.text = "Score: " + GameManager.instance.score + "/" + MAX_SCORE;
-    }*/
+    }
 	
-
-   
 	// Update is called once per frame
 	void FixedUpdate () {
+<<<<<<< HEAD
 <<<<<<< HEAD
         showScore();
 =======
         updateScore();
 >>>>>>> parent of ed3b1f8... Merge branch 'new_from_master_merged_nadia20180722' of https://github.com/dltcls/unity_3D into new_from_master_merged_nadia20180722
+=======
+        UpdateScore();
+>>>>>>> parent of 26f3c2a... Some changes
 		
 	}
-
-    private void showScore()
-    {
-        scoreLabel.text = "Score: " + currentScore + "/" + MAX_SCORE;
-    }
-
-
 }

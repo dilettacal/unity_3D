@@ -10,8 +10,7 @@ public class GameOverUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //score.text = GameManager.instance.score.ToString();
-        score.text = GameManager.instance.GetScore().ToString();
+        score.text = GameManager.instance.score.ToString();
         highscore.text = GameManager.instance.highscore.ToString();
     }
 	
