@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Behaviour {
+public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //At game start there should be an instance of game manager
     public int score = 0;
@@ -14,7 +14,7 @@ public class GameManager : Behaviour {
     //Switching among game levels
     //max level firstly=2
     public int level = 1;
-    public int maxLevel = 2;
+    private int maxLevel = 2;
 
 	void Awake () {
 
@@ -36,7 +36,7 @@ public class GameManager : Behaviour {
        highscore= PlayerPrefs.GetInt("highscore");
     }
 
-    [ClientRpc]
+    //Nicht verwendet
 	public void RpcAddScore(int newScoreValue)
     {
         //score += newScoreValue; //scores higher
@@ -55,8 +55,14 @@ public class GameManager : Behaviour {
         {
             return;
         }*/
-        score += score;
-        RpcAddScore(score);
+        score += newScore;
+        if (score > highscore)
+        {
+            //update highscore
+            highscore = score;
+            //save permanently in the game
+            PlayerPrefs.SetInt("highscore", highscore);
+        }
     }
 
     public int GetScore()
