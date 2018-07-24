@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoblinMovement : MonoBehaviour {
+public class GoblinMovement2 : MonoBehaviour {
 
-	//public float speed;            // The speed that the player will move at.
-    public float walkSpeed = 0.3f;
-    public float runSpeed = 0.5f;
+	public float speed;            // The speed that the player will move at.
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
-    float camRayLength = 500f;          // The length of the ray from the camera into the scene.
-    //bool isOnFloor;
+    float camRayLength = 1000f;          // The length of the ray from the camera into the scene.
+
     // Goblin part
     //private Animator anim;
     //private CharacterController controller;
-    
+    public float runSpeed;
     public float turnSpeed = 60.0f;
     //public float gravity = 20.0f;
 
@@ -53,9 +51,8 @@ public class GoblinMovement : MonoBehaviour {
         float run = Input.GetAxisRaw("Sprint");
 
         // Move the player around the scene.
-        //Move(h, 0, v);
+        Move(h, 0, v);
         //Move(h, 0, run);
-        
 
         // Turn the player to face the mouse cursor.
         Turning();
@@ -72,20 +69,14 @@ public class GoblinMovement : MonoBehaviour {
         mouseX += Input.GetAxis("Mouse X") * mouseSens;
         Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
         transform.rotation = originRotation * rotationY;
-        */
-        if (v != 0)
+        if (Input.GetKey(KeyCode.W) || run != 0)
         {
-            //transform.position += transform.forward;
-            Move(h, 0f, v, walkSpeed);
-        }
-        else if (run != 0)
-        {
-            Move(h, 0f, run, runSpeed);
-        }
+            transform.position += transform.forward;
+        } */
 
     }
 
-    void Move(float h, float height, float v, float speed)
+    void Move(float h, float height, float v)
     {
         // Set the movement vector based on the axis input.
         movement.Set(h, height, v);
@@ -93,14 +84,13 @@ public class GoblinMovement : MonoBehaviour {
         // Normalise the movement vector and make it proportional to the speed per second.
         movement = movement.normalized * speed * Time.deltaTime;
 
-        /* if (Input.GetKey(KeyCode.W))
-         {
-             transform.position += transform.forward;
-         } */
+        /*if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += transform.forward;
+        } */
 
         // Move the player to it's current position plus the movement.
-        playerRigidbody.position += (transform.forward * speed);
-        //playerRigidbody.MovePosition(transform.position + movement);
+        playerRigidbody.MovePosition(transform.position + movement);
     }
 
     void Turning ()
@@ -177,7 +167,6 @@ public class GoblinMovement : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         //Tag is set in the Unity panel
-        //Tag is set in the Unity panel
         if (collision.gameObject.tag == "Floor")
         {
             //isOnFloor = true;
@@ -206,7 +195,6 @@ public class GoblinMovement : MonoBehaviour {
         if (collider.gameObject.tag == "Coin")
         {
             GameManager.instance.AddScore(1); //player gets in touch with coin
-            Debug.Log(GameManager.instance.score);
             Destroy(collider.gameObject); //coin should be destroyed from the screen
             //if player gets in touch with the sphere --> next level
 
