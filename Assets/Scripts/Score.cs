@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Score : NetworkBehaviour {
+public class Score : MonoBehaviour {
 
     public const int MAX_SCORE = 5; //max number of coins
 
@@ -12,19 +12,19 @@ public class Score : NetworkBehaviour {
 
     void Start()
     {
-        if (isLocalPlayer)
+        /*if (isLocalPlayer)
         {
             currentScore = 0;
-        }
+        }*/
     }
 
-    [Command]
-    void CmdManageScoring(int amount)
+    
+    void ManageScoring(int amount)
     {
-        if (!isServer)
+       /* if (!isServer)
         {
             return;
-        }
+        }*/
 
         currentScore += amount;
         if(currentScore == MAX_SCORE)
