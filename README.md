@@ -4,7 +4,9 @@ Unity 3D Multiplayer Game - University Project (Computer Graphics Course - HTW, 
 
 Rules:
 - Please start the game at a low/middle resolution
-- Multiplayer only works on the same machine: Please start one instance as an host, the second as a client
+- Multiplayer:
+  - If used on the same machine, start game on first instance as host, on second instance as client
+  - If used on two separate machines, please start host on first instance and on the client side, please insert host ip adress in the second instance
 - Input: W = Walk, left Shift = Run, Spacebar = Jump, Left mouse button = (Look) direction 
 - All the players play on the same scene. The main objective is to reach 5 coins.
 - During the game you can encounter either enemies (Ghosts moving on the scene) or PowerUps (Mushrooms).
