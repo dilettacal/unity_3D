@@ -10,11 +10,11 @@ public class GoblinMovement : MonoBehaviour
     public float walkSpeed = 0.3f;
     public float runSpeed = 1.0f;
 
-    Vector3 movement;                   // The vector to store the direction of the player's movement.
+    Vector3 movement;                   // Direction of player
     Animator anim;                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
-    float camRayLength = 500f;          // The length of the ray from the camera into the scene.
+    float camRayLength = 500f;          // Length ray camera to scene
                                         //bool isOnFloor;
                                         // Goblin part
                                         //private Animator anim;
