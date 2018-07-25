@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+//Klasse zur Steuerung der Punkte - Multiplayer
 public class Score : NetworkBehaviour {
 
     public const int maxScore = 5;
     
-    //score derzeit in GameManager
     [SyncVar(hook = "OnCatchAdd")]
     public int currentScore;
-    //label derzeit in ScoreManager
+    
     public Text scoreLabel;
 
     void Start()

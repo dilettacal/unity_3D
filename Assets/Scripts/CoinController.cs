@@ -19,7 +19,7 @@ public class CoinController : MonoBehaviour {
 	}
 
 
-    //Test server
+    
     void OnCollisionEnter(Collision collision)
     {
         var hit = collision.gameObject; //player

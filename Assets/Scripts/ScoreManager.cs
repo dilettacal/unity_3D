@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Klasse zur Steuerung der Punkte - SinglePlayer
 public class ScoreManager : MonoBehaviour {
 
     public Text scoreLabel;
