@@ -24,12 +24,12 @@ Sekundäre Objekte
 
 
 Folgende Elemente wurden als sekundäre Objekte verwendet:
-Mushrooms (fertiges Asset)
+- Mushrooms (fertiges Asset)
   - Rot: Erhöhen die Geschwindigkeit (3x schneller)
   - Blau: Erhöhe die Sprunghöhe (5x höher)
-Ghost (fertiges Asset)
+- Ghost (fertiges Asset)
   - Bewegen sich diagonal und oben/unten
-Coins (Realisiert durch Component)
+- Coins (Realisiert durch Component)
   - Rotieren in der Umgebung um sich selbst
 
 Szene/Umgebung
