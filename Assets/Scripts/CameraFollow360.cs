@@ -10,7 +10,7 @@ public class CameraFollow360 : MonoBehaviour
     public float height = 70;
     public Vector3 lookOffset = new Vector3(0, 10, 0);
     float cameraSpeed = 80;
-    float rotSpeed = 80;
+    float rotSpeed = 20;
 
     void FixedUpdate()
     {
