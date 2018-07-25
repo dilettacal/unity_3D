@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverUIManager : MonoBehaviour {
+public class FinalScreenUIManager : MonoBehaviour {
 
     public Text score;
     public Text highscore;
