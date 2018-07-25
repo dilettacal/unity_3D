@@ -30,6 +30,7 @@ public class GoblinMovement : MonoBehaviour
     //public float stopFactor;
 
     public float jumpHeight;
+    private float POWERUP_DURATION = 10f;
 
     void Awake()
     {
@@ -216,6 +217,33 @@ public class GoblinMovement : MonoBehaviour
         {
             GameManager.instance.NextLevel();//GameManager to the next level
         }
+
+        else if (collider.gameObject.tag == "PowerUP_Jump")
+        {
+            jumpHeight *= 5f;
+            Destroy(collider.gameObject);
+
+            Invoke("JumpHeightNormalize", POWERUP_DURATION);
+        }
+
+        else if (collider.gameObject.tag == "PowerUP_Speed")
+        {
+            runSpeed *= 3f;
+            Destroy(collider.gameObject);
+
+            Invoke("RunSpeedNormalize", POWERUP_DURATION);
+        }
+    }
+
+    void JumpHeightNormalize()
+    {
+        jumpHeight = jumpHeight / 5;
+    }
+
+    void RunSpeedNormalize()
+    {
+        runSpeed = runSpeed / 3;
     }
 }
+
 
