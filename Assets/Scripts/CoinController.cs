@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * Coin in unity: isTrigger is activated. An handler for this triggering function should be implemented in the PlayerController.
- * The player should get points, if he gets in touch with coins
-**/
+
 public class CoinController : MonoBehaviour {
 
     public float rotationSpeed = 150f; // Rotation speed of the object (grads)

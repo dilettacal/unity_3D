@@ -8,7 +8,7 @@ public class GoblinMovement : MonoBehaviour
 
     //public float speed;            // The speed that the player will move at.
     public float walkSpeed = 0.3f;
-    public float runSpeed = 0.5f;
+    public float runSpeed = 1.0f;
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
@@ -23,10 +23,10 @@ public class GoblinMovement : MonoBehaviour
     public float turnSpeed = 60.0f;
     //public float gravity = 20.0f;
 
-    Quaternion originRotation;
+    //Quaternion originRotation;
     float angle;
     float mouseX;
-    float mouseSens = 5f;
+    //float mouseSens = 5f;
     //public float stopFactor;
 
     public float jumpHeight;
@@ -41,7 +41,7 @@ public class GoblinMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
 
-        originRotation = transform.rotation;
+        //originRotation = transform.rotation;
     }
 
 
@@ -151,7 +151,7 @@ public class GoblinMovement : MonoBehaviour
         bool walking = h != 0f || v != 0f;
         // Tell the animator whether or not the player is walking.
         anim.SetBool("IsWalking", walking);
-
+        anim.SetBool("Die5", false);
         if (run != 0)
         {
             anim.SetInteger("move", 2);//run
@@ -160,6 +160,7 @@ public class GoblinMovement : MonoBehaviour
         else
         {
             anim.SetInteger("move", 0);
+            anim.SetBool("Die5", false);
         }
 
 
@@ -171,7 +172,12 @@ public class GoblinMovement : MonoBehaviour
 
         if (die)
         {
-            anim.SetInteger("move", 5);
+            //anim.SetInteger("move", 5);
+            anim.SetBool("Die5", true);
+        }
+        else
+        {
+            anim.SetBool("Die5", false);
         }
 
     }
@@ -186,15 +192,15 @@ public class GoblinMovement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy")
         {
-            anim.SetInteger("move", 5);
+            //anim.SetInteger("move", 5);
             Animating(0, 0, 0, 0, true);
-            anim.SetTrigger("Die");
+            //anim.SetTrigger("Die");
         }
         else if (collision.gameObject.tag == "Mushroom")
         {
-            anim.SetInteger("move", 5);
-            Animating(0, 0, 0, 0, true);
-            anim.SetTrigger("Die");
+            //anim.SetInteger("move", 5);
+            //Animating(0, 0, 0, 0, true);
+            //anim.SetTrigger("Die");
         }
         else
         {
