@@ -29,10 +29,8 @@ public class GoblinMovement : MonoBehaviour
     float mouseSens = 5f;
     //public float stopFactor;
 
-    public float jumpHeight = 40;
+    public float jumpHeight;
 
-    private float POWERUP_DURATION = 10f;
-    private Score myScore;
     void Awake()
     {
         // Create a layer mask for the floor layer.
@@ -206,42 +204,18 @@ public class GoblinMovement : MonoBehaviour
     //Collision handler - if player gets into a coin
     private void OnTriggerEnter(Collider collider)
     {
-        //if (collider.gameObject.tag == "Coin")
-       //{
-           // GameManager.instance.AddScore(1); //player gets in touch with coin
-            //Debug.Log(GameManager.instance.score);
-            //Destroy(collider.gameObject); //coin should be destroyed from the screen
+        if (collider.gameObject.tag == "Coin")
+        {
+            GameManager.instance.AddScore(1); //player gets in touch with coin
+            Debug.Log(GameManager.instance.score);
+            Destroy(collider.gameObject); //coin should be destroyed from the screen
             //if player gets in touch with the sphere --> next level
 
-       //W }
-       // else 
-        if (collider.gameObject.tag == "Goal")
+        }
+        else if (collider.gameObject.tag == "Goal")
         {
             GameManager.instance.NextLevel();//GameManager to the next level
-        } else if(collider.gameObject.tag == "PowerUP_Jump")
-        {
-            jumpHeight *= 5f;
-            Destroy(collider.gameObject);
-           
-            Invoke("JumpHeightNormalize", POWERUP_DURATION);
         }
-
-        else if (collider.gameObject.tag == "PowerUP_Speed")
-        {
-            runSpeed *= 3f;
-            Destroy(collider.gameObject);
-
-            Invoke("RunSpeedNormalize", POWERUP_DURATION);
-        }
-    }
-
-    void JumpHeightNormalize()
-    {
-        jumpHeight = jumpHeight / 5;
-    }
-
-    void RunSpeedNormalize()
-    {
-        runSpeed = runSpeed / 3;
     }
 }
+
