@@ -32,7 +32,7 @@ public class GoblinMovement : MonoBehaviour
     public float jumpHeight = 40;
 
     private float POWERUP_DURATION = 10f;
-
+    private Score myScore;
     void Awake()
     {
         // Create a layer mask for the floor layer.
@@ -207,13 +207,13 @@ public class GoblinMovement : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         //if (collider.gameObject.tag == "Coin")
-       // {
+       //{
            // GameManager.instance.AddScore(1); //player gets in touch with coin
             //Debug.Log(GameManager.instance.score);
             //Destroy(collider.gameObject); //coin should be destroyed from the screen
             //if player gets in touch with the sphere --> next level
 
-        //}
+       //W }
        // else 
         if (collider.gameObject.tag == "Goal")
         {
