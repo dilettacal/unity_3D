@@ -34,7 +34,8 @@ Some of the Terrain elements:
 - Free Trees Pack (https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208)
 - QS Materials Nature - Pack Grass (https://assetstore.unity.com/packages/2d/textures-materials/qs-materials-nature-pack-grass-vol-1-21113)
 - Medieval House Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-house-24040)
-
+- Medieval fantasy house Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-fantasy-house-31856)
+- Max Adventure Model Pack (was used by game developing, not in play version) (https://assetstore.unity.com/packages/3d/characters/humanoids/max-adventure-model-3012)
 
 All other not listed Assets come from Unity AssetStore.
 
