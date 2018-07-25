@@ -9,10 +9,10 @@ Auf dem Weg soll der Player Enemies vermeiden und kann Power-Ups verwenden, um d
 
 Input
 
-Richtung über Mausbewegung
-W für Walk
-Spacebar für Springen
-Shift für Rennen
+- Richtung über Mausbewegung
+- W für Walk
+- Spacebar für Springen
+- Shift für Rennen
 
 
 Player
@@ -25,12 +25,12 @@ Sekundäre Objekte
 
 Folgende Elemente wurden als sekundäre Objekte verwendet:
 Mushrooms (fertiges Asset)
-  Rot: Erhöhen die Geschwindigkeit (3x schneller)
-  Blau: Erhöhe die Sprunghöhe (5x höher)
+  - Rot: Erhöhen die Geschwindigkeit (3x schneller)
+  - Blau: Erhöhe die Sprunghöhe (5x höher)
 Ghost (fertiges Asset)
-  Bewegen sich diagonal und oben/unten
+  - Bewegen sich diagonal und oben/unten
 Coins (Realisiert durch Component)
-  Rotieren in der Umgebung um sich selbst
+  - Rotieren in der Umgebung um sich selbst
 
 Szene/Umgebung
 
@@ -41,21 +41,21 @@ Quellen
 Spielelemente - alle Spielelemente, die nicht selbst konfiguriert wurden, sind aus dem Unity AssetStore übernommen worden
 
 Main Character:
-Goblin Robber: https://assetstore.unity.com/packages/3d/characters/humanoids/goblin-robber-66959
+ - Goblin Robber: https://assetstore.unity.com/packages/3d/characters/humanoids/goblin-robber-66959
 Sekundäre Elemente:
-Level1 Monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703)
+- Level1 Monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703)
 Power-Ups:
-Mushroom monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/fantasy-mushroom-mon-115406)
+- Mushroom monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/fantasy-mushroom-mon-115406)
 Terrainelemente:
-Grass road race (https://assetstore.unity.com/packages/3d/environments/roadways/grass-road-race-46974)
-Low Poly free Pack (https://assetstore.unity.com/packages/category/low-poly-free-pack-63714)
-AsseLevel 1 Monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703)
-Medieval Stone Keep Pack (https://assetstore.unity.com/packages/3d/environments/medieval-stone-keep-56596)
-Free Trees Pack (https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208)
+- Grass road race (https://assetstore.unity.com/packages/3d/environments/roadways/grass-road-race-46974)
+- Low Poly free Pack (https://assetstore.unity.com/packages/category/low-poly-free-pack-63714)
+- AsseLevel 1 Monster Pack (https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703)
+- Medieval Stone Keep Pack (https://assetstore.unity.com/packages/3d/environments/medieval-stone-keep-56596)
+- Free Trees Pack (https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208)
 QS Materials Nature - Pack Grass (https://assetstore.unity.com/packages/2d/textures-materials/qs-materials-nature-pack-grass-vol-1-21113)
-Medieval House Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-house-24040)
-Medieval fantasy house Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-fantasy-house-31856)
-Max Adventure Model Pack (was used by game developing, not in play version) (https://assetstore.unity.com/packages/3d/characters/humanoids/max-adventure-model-3012)
+- Medieval House Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-house-24040)
+- Medieval fantasy house Pack (https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-fantasy-house-31856)
+- Max Adventure Model Pack (was used by game developing, not in play version) (https://assetstore.unity.com/packages/3d/characters/humanoids/max-adventure-model-3012)
 Design:
-Fotos: pixaby (https://pixabay.com/de/hintergrundbild-fantasie-b%C3%A4ume-see-3507320)
-Fonts: 1001fonts (https://www.1001fonts.com/carolingia-bigfoot-font.html)
+- Fotos: pixaby (https://pixabay.com/de/hintergrundbild-fantasie-b%C3%A4ume-see-3507320)
+- Fonts: 1001fonts (https://www.1001fonts.com/carolingia-bigfoot-font.html)
