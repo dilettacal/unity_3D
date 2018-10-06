@@ -1,13 +1,13 @@
 # unity_3D
 Beleg im Modul Computergrafik, SS2018
 
-Das Spiel
+<b>Das Spiel</b>
 
 Ziel unserer Belegarbeit ist die Entwicklung von einem 3D-Spiel. Das Spiel soll sowohl als Single Player, als auch im Multiplayer bedienbar sein. 
 Der Player soll Coins sammeln, die sich an verschiedenen Positionen in der Szene befinden.
 Auf dem Weg soll der Player Enemies vermeiden und kann Power-Ups verwenden, um den Weg zur Münze zu beschleunigen.
 
-Input
+<b>Input</b>
 
 - Richtung über Mausbewegung
 - W für Walk
@@ -15,12 +15,12 @@ Input
 - Shift für Rennen
 
 
-Player
+<b>Player</b>
 
 
 Unser Player ist ein Goblin und verfügt über folgende Fähigkeiten: Spazieren (walk), Laufen (run), Sterben (die), Springen (jump), Stehen (idle). Dafür wurde ein Asset aus dem Unity AssetStore verwendet. Die Animationen und die Wirkung von treffenden Elementen (onCollision Verhalten) wurden nach unseren Vorstellungen für das Spiel angepasst. 
 
-Sekundäre Objekte
+<b>Sekundäre Objekte</b>
 
 
 Folgende Elemente wurden als sekundäre Objekte verwendet:
@@ -32,11 +32,11 @@ Folgende Elemente wurden als sekundäre Objekte verwendet:
 - Coins (Realisiert durch Component)
   - Rotieren in der Umgebung um sich selbst
 
-Szene/Umgebung
+<b>Szene/Umgebung</b>
 
 Die Szene besteht aus einem Plane, auf dem ein Terrain (wurde mithilfe von standard Unity Funktionen erzeugt) angeschlossen wurde. Auf der Szene befinden sich Naturelemente und Häuser, die aus dem Unity AssetStore als fertige Prefabs übernommen wurden. Diese Elemente sind bezüglich ihrer Form mit einem Box, Sphere oder Mesh-Collider ausgestattet worden, damit der Spieler nicht durch die Objekte laufen kann.
 
-Quellen
+<b>Quellen</b>
 
 Spielelemente - alle Spielelemente, die nicht selbst konfiguriert wurden, sind aus dem Unity AssetStore übernommen worden
 
